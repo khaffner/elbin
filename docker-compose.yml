@@ -21,7 +21,7 @@ services:
       image: homeassistant/raspberrypi3-homeassistant:stable
       restart: unless-stopped
       ports: 
-        - 8080:80
+        - 8123:8123
     portainer:
       container_name: Portainer
       image: portainer/portainer
