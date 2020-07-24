@@ -2,8 +2,9 @@ version: '3'
 services: 
     can:
       container_name: CAN
-      build: .
-      dockerfile: Dockerfile.CAN
+      build:
+        context: .
+        dockerfile: Dockerfile.CAN
       devices: 
         - /dev/gpiomem
       volumes: 
