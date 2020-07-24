@@ -16,6 +16,7 @@ services:
         - TZ=Europe/Oslo
       volumes: 
         - /homeassistant-config:/config
+        - /can-data:/can-data:ro
       network_mode: host
       image: homeassistant/raspberrypi3-homeassistant:stable
       restart: unless-stopped
