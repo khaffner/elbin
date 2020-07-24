@@ -1,0 +1,30 @@
+version: 3
+services: 
+    CAN:
+      container_name: CAN
+      build: .
+      devices: /dev/gpiomem
+      volumes: 
+        - /can-data:/can-data
+      restart: unless-stopped
+    HomeAssistant:
+      container_name: HomeAssistant
+      environment: 
+        - TZ=Europe/Oslo
+      volumes: 
+        - /homeassistant-config:/config
+      net: host
+      image: homeassistant/raspberrypi3-homeassistant:stable
+      restart: unless-stopped
+      ports: 8080:80
+    Portainer:
+      container_name: Portainer
+      image: portainer/portainer
+      restart: unless-stopped
+      command: -H unix:///var/run/docker.sock
+      ports: 
+        - 9000:9000
+        - 8000:8000
+      volumes: 
+        - /var/run/docker.sock:/var/run/docker.sock
+        - /portainer-data:/data
