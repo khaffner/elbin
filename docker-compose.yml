@@ -2,7 +2,7 @@ version: '3'
 services: 
     can:
       container_name: CAN
-      build: .
+      build: Dockerfile.CAN
       devices: 
         - /dev/gpiomem
       volumes: 
