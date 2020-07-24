@@ -12,4 +12,5 @@ Home Assistant is the UI.
   - Read it first
 
 ### Running
-- docker-compose up --build f /home/pi/elbin/docker-compose.yml
+- In the elbin folder, run:
+  - docker-compose up --build
