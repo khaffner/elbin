@@ -20,6 +20,9 @@ apt-get install python3 python3-pip -y
 pip3 install docker-compose
 usermod -aG docker pi
 
+# Install gps packages
+apt-get install gpsd -y
+
 # Host settings
 raspi-config nonint do_hostname "elbin"
 raspi-config nonint do_i2c 0  # 0 should enable it

@@ -1,6 +1,7 @@
 # Elbin
 Everything running on the raspberry pi on the boat named elbin. \
 Electric motor info gets pulled via CAN. \
+GPS coordinates from usb gps antenna, uses gpsd. \
 Home Assistant is the UI.
 
 
