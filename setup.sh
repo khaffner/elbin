@@ -16,6 +16,11 @@ apt-get install git -y
 # Install docker
 curl -fsSL https://get.docker.com -o get-docker.sh
 sh get-docker.sh
+# https://devdojo.com/bobbyiliev/how-to-install-docker-and-docker-compose-on-raspberry-pi
+apt-get install libffi-dev libssl-dev -y
+apt install python3-dev -y
+apt-get install python3 python3-pip -y
+pip3 install docker-compose
 usermod -aG docker pi
 
 # Host settings
