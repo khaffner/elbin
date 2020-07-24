@@ -24,17 +24,17 @@ raspi-config nonint do_i2c 0  # 0 should enable it
 
 # Clone this repo
 git clone https://github.com/khaffner/elbin.git /home/pi/elbin
-chown pi:pi /home/pi/elbin/
+chown -R pi:pi /home/pi/elbin/
 
 # Folders for containers
 mkdir /can-data
-chown pi:pi /can-data/
+chown -R pi:pi /can-data/
 
 mkdir /homeassistant-config
-chown pi:pi /homeassistant-config/
+chown -R pi:pi /homeassistant-config/
 
 mkdir /portainer-data
-chown pi:pi /portainer-data/
+chown -R pi:pi /portainer-data/
 
 echo ############################
 echo ###### Please reboot #######
