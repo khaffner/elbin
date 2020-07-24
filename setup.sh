@@ -1,7 +1,7 @@
 # Assumes:
 #   The hostname should be elbin 
 #   The username is pi
-#   The host is a Raspberry Pi
+#   The host is a Raspberry Pi 3B
 #   The CAN hat is installed
 #   Home Assistant will be used as UI for the data
 # Run this script with sudo
