@@ -4,6 +4,7 @@
 #   The host is a Raspberry Pi 3B
 #   The CAN hat is installed
 #   Home Assistant will be used as UI for the data
+#   GPS receiver is /dev/ttyUSB0
 # Run this script with sudo
 
 # Update the system
@@ -26,6 +27,7 @@ apt-get install gpsd -y
 # Host settings
 raspi-config nonint do_hostname "elbin"
 raspi-config nonint do_i2c 0  # 0 should enable it
+cat /etc/default/gpsd | sed -i 's;DEVICES="";DEVICES="/dev/ttyUSB0";' /etc/default/gpsd # Specifies what device is gps receiver
 
 # Folders for containers
 mkdir /can-data
