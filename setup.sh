@@ -29,16 +29,6 @@ raspi-config nonint do_hostname "elbin"
 raspi-config nonint do_i2c 0  # 0 should enable it
 cat /etc/default/gpsd | sed -i 's;DEVICES="";DEVICES="/dev/ttyUSB0";' /etc/default/gpsd # Specifies what device is gps receiver
 
-# Folders for containers
-mkdir /can-data
-chown -R pi:pi /can-data/
-
-mkdir /homeassistant-config
-chown -R pi:pi /homeassistant-config/
-
-mkdir /portainer-data
-chown -R pi:pi /portainer-data/
-
 echo ############################
 echo ###### Please reboot #######
 echo ############################
