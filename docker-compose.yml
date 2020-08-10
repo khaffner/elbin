@@ -14,6 +14,9 @@ services:
     restart: unless-stopped
   homeassistant:
     container_name: HomeAssistant
+    build:
+      context: .
+      dockerfile: Dockerfile.HomeAssistant
     environment: 
       - TZ=Europe/Oslo
     volumes: 
@@ -22,13 +25,14 @@ services:
     devices: 
       - /dev/ttyUSB0:/dev/ttyUSB0 # GPS
     network_mode: host
-    image: homeassistant/raspberrypi3-homeassistant:stable
     restart: unless-stopped
     ports: 
       - 8123:8123
   portainer:
     container_name: Portainer
-    image: portainer/portainer
+    build:
+      context: .
+      dockerfile: Dockerfile.Portainer
     restart: unless-stopped
     command: -H unix:///var/run/docker.sock
     ports: 
@@ -39,7 +43,9 @@ services:
       - portainer-data:/data
   syncthing:
     container_name: Syncthing
-    image: syncthing/syncthing
+    build:
+      context: .
+      dockerfile: Dockerfile.Syncthing
     restart: unless-stopped
     ports:
       - 8384:8384
