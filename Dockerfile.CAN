@@ -1,6 +1,6 @@
 FROM mcr.microsoft.com/powershell:lts-arm32v7-ubuntu-bionic
 
-RUN apt-get update && apt-get install canopen -y
+RUN apt-get update && apt-get install can-utils -y
 
 ADD ParseCAN.ps1 /app/
 
