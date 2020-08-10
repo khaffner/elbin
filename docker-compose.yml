@@ -2,6 +2,8 @@ version: '3'
 services: 
   can:
     container_name: CAN
+    environment: 
+      - TZ=Europe/Oslo
     build:
       context: .
       dockerfile: Dockerfile.CAN
