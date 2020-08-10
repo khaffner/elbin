@@ -33,7 +33,19 @@ services:
     volumes: 
       - /var/run/docker.sock:/var/run/docker.sock
       - portainer-data:/data
+  syncthing:
+    container_name: Syncthing
+    image: syncthing/syncthing
+    restart: Unless-Stopped
+    ports:
+      - 8384:8384
+      - 22000:22000
+    volumes:
+      - syncthing-config:/config
+      - can-data:/can-data
+
 volumes: 
   can-data:
   homeassistant-config:
   portainer-data:
+  syncthing-config:
