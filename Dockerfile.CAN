@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/powershell:lts-debian-buster-slim
+FROM mcr.microsoft.com/powershell:lts-arm32v7-ubuntu-bionic
 
 RUN apt-get update && apt-get install canopen -y
 
