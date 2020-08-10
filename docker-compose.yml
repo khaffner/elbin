@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile.CAN
     devices: 
-      - /dev/gpiomem
+      - /dev/gpiomem:/dev/gpiomem # GPIO pins with CAN Hat
     volumes: 
       - can-data:/can-data
     restart: unless-stopped
@@ -17,6 +17,8 @@ services:
     volumes: 
       - homeassistant-config:/config
       - can-data:/can-data:ro
+    devices: 
+      - /dev/ttyUSB0:/dev/ttyUSB0 # GPS
     network_mode: host
     image: homeassistant/raspberrypi3-homeassistant:stable
     restart: unless-stopped
