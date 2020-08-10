@@ -1,4 +1,4 @@
-FROM syncthing/syncthing
+FROM linuxserver/syncthing
 
 RUN mkdir -p /dockervolumes/can-data
 RUN mkdir -p /dockervolumes/homeassistant-config
