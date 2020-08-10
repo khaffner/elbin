@@ -1,4 +1,7 @@
-FROM python:3.8.5-slim-buster
+FROM mcr.microsoft.com/powershell:lts-debian-buster-slim
 
-RUN pip install canopen
-RUN pip install python-can
+RUN apt-get update && apt-get install canopen -y
+
+ADD ParseCAN.ps1 /app/
+
+ENTRYPOINT [ "/app/ParseCAN.ps1" ]
