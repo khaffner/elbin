@@ -44,7 +44,8 @@ services:
       - 22000:22000
     volumes:
       - syncthing-config:/config
-      - can-data:/can-data
+      - can-data:/dockervolumes/can-data
+      - homeassistant-config:/dockervolumes/homeassistant-config:ro
 
 volumes: 
   can-data:
