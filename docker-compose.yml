@@ -40,7 +40,7 @@ services:
   syncthing:
     container_name: Syncthing
     image: syncthing/syncthing
-    restart: Unless-Stopped
+    restart: unless-stopped
     ports:
       - 8384:8384
       - 22000:22000
