@@ -5,4 +5,4 @@ RUN mkdir /can-data
 
 ADD ParseCAN.ps1 /app/
 
-ENTRYPOINT [ "/app/ParseCAN.ps1" ]
+ENTRYPOINT [ "pwsh", "-File" "/app/ParseCAN.ps1" ]
