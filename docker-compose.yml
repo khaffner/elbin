@@ -47,7 +47,7 @@ services:
     volumes:
       - syncthing-config:/config
       - can-data:/dockervolumes/can-data
-      - homeassistant-config:/dockervolumes/homeassistant-config:ro
+      - homeassistant-config:/dockervolumes/homeassistant-config
 
 volumes: 
   can-data:
