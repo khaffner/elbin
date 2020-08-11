@@ -53,9 +53,20 @@ services:
       - syncthing-config:/config
       - can-data:/dockervolumes/can-data
       - homeassistant-config:/dockervolumes/homeassistant-config
+  heimdall:
+    container_name: Heimdall
+    environment:
+      - TZ=Europe/Oslo
+    volumes:
+      - heimdall-config:/config
+    ports:
+      - 80:80
+      - 443:443
+    restart: unless-stopped
 
 volumes: 
   can-data:
   homeassistant-config:
   portainer-data:
   syncthing-config:
+  heimdall-config:
