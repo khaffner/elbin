@@ -21,8 +21,8 @@ services:
     volumes: 
       - homeassistant-config:/config
       - can-data:/can-data:ro
-    devices: 
-      - /dev/ttyUSB0:/dev/ttyUSB0 # GPS
+    devices:
+      - "/dev/ttyUSB0:/dev/ttyUSB0" # GPS
     network_mode: host
     restart: unless-stopped
     ports: 
