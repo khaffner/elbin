@@ -1,3 +1,5 @@
 FROM homeassistant/raspberrypi3-homeassistant:stable
 
+RUN apk update && apk add gpsd
+
 RUN mkdir /can-data
