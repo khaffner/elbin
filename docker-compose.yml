@@ -55,6 +55,9 @@ services:
       - homeassistant-config:/dockervolumes/homeassistant-config
   heimdall:
     container_name: Heimdall
+    build:
+      context: .
+      dockerfile: Dockerfile.Heimdall
     environment:
       - TZ=Europe/Oslo
     volumes:
