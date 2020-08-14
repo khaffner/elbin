@@ -13,6 +13,7 @@ class CANFrame {
     [string]$ID
     [string]$IDFriendlyName
     [string]$Data
+    [int64] $DataInt
     [string]$DataUnit
     [string]$DataValue
 }
@@ -25,6 +26,16 @@ $SampleArray | ForEach-Object {
     $Frame.ID = $Split[1]
     $DLC = $Split[2].Replace('[','').Replace(']','')
     $Frame.Data = ($Split | Select-Object -Last $DLC) -join ''
+
+    $DataPadded = $Frame.Data.PadLeft(16,"0")
+    $Frame.DataInt = [int64]"0x$($DataPadded)"
+
+    # Translations of ID and data
+    if($Frame.ID -eq "09F503A0") {
+        $Frame.IDFriendlyName = "Test1"
+        $Frame.DataUnit = "RPM" # example
+        $Frame.DataValue = $Frame.DataInt * 2 #example
+    }
 
     # Use IDFriendlyName as filename if possible, use ID as fallback
     $FileName = $Frame.IDFriendlyName ? $Frame.IDFriendlyName : $Frame.ID
