@@ -18,10 +18,9 @@ class CANFrame {
 }
 
 $SampleArray | ForEach-Object {
-    $Frame = New-Object CANFrame
-
     $Split = $PSItem.Split()
 
+    $Frame = New-Object CANFrame
     $Frame.TimeStamp = Get-Date -Format "o" # ISO 8601
     $Frame.ID = $Split[1]
     $DLC = $Split[2].Replace('[','').Replace(']','')
