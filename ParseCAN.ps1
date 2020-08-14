@@ -27,5 +27,7 @@ $SampleArray | ForEach-Object {
     $DLC = $Split[2].Replace('[','').Replace(']','')
     $Frame.Data = ($Split | Select-Object -Last $DLC) -join ''
 
-    $Frame | ConvertTo-Json -Compress | Out-File -Append -FilePath "/can-data/$($Frame.ID).json"
+    # Use IDFriendlyName as filename if possible, use ID as fallback
+    $FileName = $Frame.IDFriendlyName ? $Frame.IDFriendlyName : $Frame.ID
+    $Frame | ConvertTo-Json -Compress | Out-File -Append -FilePath "/can-data/$FileName.json"
 }
