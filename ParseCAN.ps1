@@ -37,7 +37,14 @@ $SampleArray | ForEach-Object {
         $Frame.DataValue = $Frame.DataInt * 2 #example
     }
 
-    # Use IDFriendlyName as filename if possible, use ID as fallback
-    $FileName = $Frame.IDFriendlyName ? $Frame.IDFriendlyName : $Frame.ID
-    $Frame | ConvertTo-Json -Compress | Out-File -Append -FilePath "/can-data/$FileName.json"
+    # Use IDFriendlyName as folder name if possible, use ID as fallback
+    $FolderName = $Frame.IDFriendlyName ? $Frame.IDFriendlyName : $Frame.ID
+    
+    # Save results
+    $FolderPath = "/can-data/$FolderName"
+    $FileName = Get-Date -Format "yyyy-MM-dd" + ".json"
+    if(!(Test-Path $FolderPath)) {
+        New-Item $FolderPath -ItemType Directory
+    }
+    $Frame | ConvertTo-Json -Compress | Out-File -Append -FilePath "$FolderPath/$FileName.json"
 }
