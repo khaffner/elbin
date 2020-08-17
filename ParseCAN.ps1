@@ -42,7 +42,7 @@ $SampleArray | ForEach-Object {
     
     # Save results
     $FolderPath = "/can-data/$FolderName"
-    $FileName = Get-Date -Format "yyyy-MM-dd" + ".json"
+    $FileName = Get-Date -Format "yyyy-MM-dd"
     if(!(Test-Path $FolderPath)) {
         New-Item $FolderPath -ItemType Directory
     }
