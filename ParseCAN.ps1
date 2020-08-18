@@ -12,8 +12,7 @@ class CANFrame {
     [datetime]$TimeStamp
     [string]$ID
     [string]$IDFriendlyName
-    [string]$Data
-    [int64] $DataInt
+    [string]$DataRaw
     [string]$DataUnit
     [string]$DataValue
 }
@@ -25,16 +24,13 @@ $SampleArray | ForEach-Object {
     $Frame.TimeStamp = Get-Date -Format "o" # ISO 8601
     $Frame.ID = $Split[1]
     $DLC = $Split[2].Replace('[','').Replace(']','')
-    $Frame.Data = ($Split | Select-Object -Last $DLC) -join ''
-
-    $DataPadded = $Frame.Data.PadLeft(16,"0")
-    $Frame.DataInt = [int64]"0x$($DataPadded)"
+    $Frame.DataRaw = ($Split | Select-Object -Last $DLC) -join ''
 
     # Translations of ID and data
     if($Frame.ID -eq "09F503A0") {
-        $Frame.IDFriendlyName = "Test1"
+        $Frame.IDFriendlyName = "Test1" # example
         $Frame.DataUnit = "RPM" # example
-        $Frame.DataValue = $Frame.DataInt * 2 #example
+        $Frame.DataValue = "test" #example
     }
 
     # Use IDFriendlyName as folder name if possible, use ID as fallback
