@@ -11,6 +11,18 @@ services:
       - /dev/gpiomem:/dev/gpiomem # GPIO pins with CAN Hat
     volumes: 
       - can-data:/can-data
+  temperature:
+    container_name: Temperature
+    environment: 
+      - TZ=Europe/Oslo
+    build:
+      context: .
+      dockerfile: Dockerfile.Temperature
+    devices: 
+      - /dev/ttyUSB1:/dev/ttyUSB0 # cli tool defaults to ttyUSB0
+    volumes: 
+      - temperature-data:/temperature-data
+    privileged: true # cli tool needs to modify device(?)
   homeassistant:
     container_name: HomeAssistant
     build:

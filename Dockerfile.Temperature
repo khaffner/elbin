@@ -1,0 +1,9 @@
+FROM mcr.microsoft.com/powershell:lts-arm32v7-ubuntu-bionic
+
+ADD https://github.com/usbtemp/utmp-cli/releases/download/1.06/utmp-cli /app/
+RUN chmod +rwx /app/utmp-cli
+
+ADD LogTemp.ps1 /app
+RUN mkdir /temperature-data
+
+ENTRYPOINT [ "pwsh", "-File", "/app/LogTemp.ps1" ]
