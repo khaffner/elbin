@@ -8,7 +8,7 @@ while($true) {
 
     $obj = New-Object Temperature
     $obj.timestamp = Get-Date -Format "o" # ISO 8601
-    $obj.temp = $raw.Split(": ")[-2]
+    $obj.temp = $raw.Split(": ")[-2].Replace(" F","")
 
     # Save results
     $FolderPath = "/temperature-data"

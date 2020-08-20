@@ -24,6 +24,7 @@ services:
       - /dev/ttyUSB1:/dev/ttyUSB0
     volumes: 
       - temperature-data:/temperature-data
+    privileged: true
 #################################################  
   homeassistant:
     container_name: HomeAssistant
