@@ -18,5 +18,6 @@ while($true) {
         New-Item $FolderPath -ItemType Directory
     }
     $obj | ConvertTo-Json -Compress | Out-File -Append -FilePath $FilePath
+    Write-Host $obj.temp
     Start-Sleep -Seconds 59
 }
