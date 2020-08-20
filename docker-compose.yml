@@ -21,7 +21,7 @@ services:
       context: .
       dockerfile: Dockerfile.Temperature
     devices: 
-      - /dev/ttyUSB1:/dev/ttyUSB0
+      - /dev/ttyUSB0:/dev/ttyUSB0
     volumes: 
       - temperature-data:/temperature-data
     privileged: true
@@ -37,7 +37,7 @@ services:
       - homeassistant-config:/config
       - can-data:/can-data:ro
     devices:
-      - "/dev/ttyUSB0:/dev/ttyUSB0" # GPS
+      - "/dev/ttyUSB1:/dev/ttyUSB0" # GPS
     network_mode: host
     restart: unless-stopped
     ports: 
