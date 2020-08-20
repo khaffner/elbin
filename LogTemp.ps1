@@ -2,7 +2,7 @@ class Temperature {
     [datetime]$timestamp
     [string]$temp
 }
-
+digitemp_DS9097 -i -s /dev/ttyUSB0 -c /etc/digitemp.conf
 while($true) {
     $raw = digitemp_DS9097 -a -q -c /etc/digitemp.conf
 

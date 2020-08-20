@@ -1,7 +1,6 @@
 FROM mcr.microsoft.com/powershell:lts-arm32v7-ubuntu-bionic
 
 RUN apt-get update && apt-get install digitemp -y
-RUN digitemp_DS9097 -i -s /dev/ttyUSB0 -c /etc/digitemp.conf
 
 ADD LogTemp.ps1 /app
 RUN mkdir /temperature-data
