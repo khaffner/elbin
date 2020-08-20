@@ -85,3 +85,4 @@ volumes:
   portainer-data:
   syncthing-config:
   heimdall-config:
+  temperature-data:
