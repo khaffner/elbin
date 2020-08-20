@@ -4,11 +4,11 @@ class Temperature {
 }
 
 while($true) {
-    $raw = & /app/utmp-cli -q # https://usbtemp.com/
+    $raw = digitemp_DS9097 -a -q -c /etc/digitemp.conf
 
     $obj = New-Object Temperature
     $obj.timestamp = Get-Date -Format "o" # ISO 8601
-    $obj.temp = $raw.Split("C: ")[-1]
+    $obj.temp = $raw.Split(": ")[-2]
 
     # Save results
     $FolderPath = "/temperature-data"
