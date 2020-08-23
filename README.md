@@ -1,8 +1,12 @@
 # Elbin
-Everything running on the raspberry pi on the boat named elbin. \
+Everything running on the raspberry pi on the boat named Elbin. \
 Electric motor info gets pulled via CAN. \
 GPS coordinates from usb gps antenna, uses gpsd. \
 Home Assistant is the UI.
+Portainer for graphical docker management.
+DuckDNS for dns.
+Syncthing for syncing(/"backup") to off site computer.
+Heimdall for "front page" on LAN
 
 
 ### Setup
@@ -13,4 +17,4 @@ Home Assistant is the UI.
 
 ### Running
 - In the elbin folder, run:
-  - docker-compose up --build
+  - docker-compose up --build -d
