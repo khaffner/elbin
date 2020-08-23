@@ -87,8 +87,10 @@ services:
     restart: unless-stopped
 #################################################
 duckdns:
-  image: linuxserver/duckdns
   container_name: DuckDNS
+  build:
+    context: .
+    dockerfile: Dockerfile.DuckDNS
   env_file:
     - DuckDNS.env
   restart: unless-stopped
