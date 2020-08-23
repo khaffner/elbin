@@ -86,14 +86,14 @@ services:
       - 443:443
     restart: unless-stopped
 #################################################
-duckdns:
-  container_name: DuckDNS
-  build:
-    context: .
-    dockerfile: Dockerfile.DuckDNS
-  env_file:
-    - DuckDNS.env
-  restart: unless-stopped
+  duckdns:
+    container_name: DuckDNS
+    build:
+      context: .
+      dockerfile: Dockerfile.DuckDNS
+    env_file:
+      - DuckDNS.env
+    restart: unless-stopped
 #################################################
 volumes: 
   can-data:
