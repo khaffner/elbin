@@ -86,6 +86,13 @@ services:
       - 443:443
     restart: unless-stopped
 #################################################
+duckdns:
+  image: linuxserver/duckdns
+  container_name: DuckDNS
+  env_file:
+    - DuckDNS.env
+  restart: unless-stopped
+#################################################
 volumes: 
   can-data:
   homeassistant-config:
