@@ -4,6 +4,6 @@ RUN apt-get update && apt-get install digitemp -y
 
 RUN mkdir /app
 ADD LogTemp.ps1 /app
-RUN mkdir /temperature-data
+RUN mkdir /logs
 
 ENTRYPOINT [ "pwsh", "-File", "/app/LogTemp.ps1" ]

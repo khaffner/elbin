@@ -37,7 +37,7 @@ $SampleArray | ForEach-Object {
     $FolderName = $Frame.IDFriendlyName ? $Frame.IDFriendlyName : $Frame.ID
     
     # Save results
-    $FolderPath = "/can-data/$FolderName"
+    $FolderPath = "/logs/can/$FolderName"
     $FileName = Get-Date -Format "yyyy-MM-dd"
     $FilePath = "$FolderPath/$FileName.json"
     if(!(Test-Path $FolderPath)) {

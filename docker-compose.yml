@@ -11,7 +11,7 @@ services:
     devices: 
       - /dev/gpiomem:/dev/gpiomem # GPIO pins with CAN Hat
     volumes: 
-      - can-data:/can-data
+      - logs:/logs
 #################################################
   temperature:
     container_name: Temperature
@@ -23,7 +23,7 @@ services:
     devices: 
       - /dev/ttyUSB0:/dev/ttyUSB0
     volumes: 
-      - temperature-data:/temperature-data
+      - logs:/logs
     privileged: true
 #################################################  
   homeassistant:
@@ -35,8 +35,7 @@ services:
       - TZ=Europe/Oslo
     volumes: 
       - homeassistant-config:/config
-      - can-data:/can-data:ro
-      - temperature-data:/temperature-data:ro
+      - logs:/logs:ro
     devices:
       - "/dev/ttyUSB1:/dev/ttyUSB0" # GPS
     network_mode: host
@@ -69,7 +68,7 @@ services:
       - 22000:22000
     volumes:
       - syncthing-config:/config
-      - can-data:/dockervolumes/can-data
+      - logs:/logs
       - homeassistant-config:/dockervolumes/homeassistant-config
 #################################################
   heimdall:
@@ -96,9 +95,8 @@ services:
     restart: unless-stopped
 #################################################
 volumes: 
-  can-data:
+  logs:
   homeassistant-config:
   portainer-data:
   syncthing-config:
   heimdall-config:
-  temperature-data:

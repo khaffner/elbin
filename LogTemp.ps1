@@ -11,7 +11,7 @@ while($true) {
     $obj.temp = $raw.Split(": ")[-2].Replace(" F","")
 
     # Save results
-    $FolderPath = "/temperature-data"
+    $FolderPath = "/logs/temperature"
     $FileName = Get-Date -Format "yyyy-MM-dd"
     $FilePath = "$FolderPath/$FileName.json"
     if(!(Test-Path $FolderPath)) {
