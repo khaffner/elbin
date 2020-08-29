@@ -21,7 +21,7 @@ services:
       context: .
       dockerfile: Dockerfile.Temperature
     devices: 
-      - /dev/ttyUSB_TEMP:/dev/ttyUSB0
+      - /dev/ttyUSB_TEMP:/dev/ttyUSB_TEMP
     volumes: 
       - logs:/logs
     privileged: true
