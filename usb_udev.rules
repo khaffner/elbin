@@ -1,0 +1,5 @@
+# GPS
+SUBSYSTEM=="tty", ATTRS{idVendor}=="067b", ATTRS{idProduct}=="2303", ATTRS{product}=="USB-Serial Controller D"  SYMLINK+="ttyUSB_GPS"
+
+# Temperature sensor
+SUBSYSTEM=="tty", ATTRS{idVendor}=="067b", ATTRS{idProduct}=="2303", ATTRS{product}=="USB-Serial Controller"  SYMLINK+="ttyUSB_TEMP"
