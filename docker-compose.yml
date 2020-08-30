@@ -8,8 +8,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.CAN
-    devices: 
-      - /dev/gpiomem:/dev/gpiomem # GPIO pins with CAN Hat
     volumes: 
       - logs:/logs
 #################################################
@@ -23,6 +21,18 @@ services:
     volumes: 
       - logs:/logs
       - /dev:/dev
+    privileged: true
+#################################################
+  sensehat:
+    container_name: SenseHat
+    environment: 
+      - TZ=Europe/Oslo
+    build:
+      context: .
+      dockerfile: Dockerfile.SenseHat
+    volumes: 
+      - logs:/logs
+      - /dev/gpiomem:/dev/gpiomem
     privileged: true
 #################################################  
   homeassistant:

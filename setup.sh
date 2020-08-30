@@ -25,9 +25,7 @@ apt-get install gpsd -y
 
 # Host settings
 raspi-config nonint do_hostname "elbin"
-raspi-config nonint do_i2c 0  # 0 should enable it
 cat /etc/default/gpsd | sed -i 's;DEVICES="";DEVICES="/dev/serial/by-id/usb-Prolific_Technology_Inc._USB-Serial_Controller_D-if00-port0";' /etc/default/gpsd # Specifies what device is gps receiver
-cp usb_udev.rules /etc/udev/rules.d/10-usb-serial.rules
 
 echo ############################
 echo ###### Please reboot #######
