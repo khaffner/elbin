@@ -20,10 +20,9 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.Temperature
-    devices: 
-      - /dev/ttyUSB_TEMP:/dev/ttyUSB_TEMP
     volumes: 
       - logs:/logs
+      - /dev:/dev
     privileged: true
 #################################################  
   homeassistant:

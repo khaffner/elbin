@@ -2,7 +2,7 @@ class Temperature {
     [datetime]$timestamp
     [string]$temp
 }
-digitemp_DS9097 -i -s /dev/ttyUSB_TEMP -c /etc/digitemp.conf
+digitemp_DS9097 -i -s /dev/serial/by-id/usb-Prolific_Technology_Inc._USB-Serial_Controller-if00-port0 -c /etc/digitemp.conf
 while($true) {
     $raw = digitemp_DS9097 -a -q -c /etc/digitemp.conf
 
