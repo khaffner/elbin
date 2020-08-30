@@ -6,13 +6,9 @@ import datetime
 sense = SenseHat()
 
 while(True):
-    # Enable only compass
-    sense.set_imu_config(True,False,False)
     compass = sense.get_compass() # float
-
-    # Enable only gyro
-    sense.set_imu_config(False,True,False)
     gyro = sense.get_gyroscope()
+    
     pitch = "{pitch}".format(**gyro) # float
     roll = "{roll}".format(**gyro) # float
     yaw = "{yaw}".format(**gyro) # float
