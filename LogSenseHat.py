@@ -1,5 +1,7 @@
 from sense_hat import SenseHat
 import time
+import json
+import datetime
 
 sense = SenseHat()
 
@@ -11,16 +13,19 @@ while(True):
     # Enable only gyro
     sense.set_imu_config(False,True,False)
     gyro = sense.get_gyroscope()
-    pitch = "{pitch}".format(**gyro)
-    roll = "{roll}".format(**gyro)
-    yaw = "{yaw}".format(**gyro)
+    pitch = "{pitch}".format(**gyro) # float
+    roll = "{roll}".format(**gyro) # float
+    yaw = "{yaw}".format(**gyro) # float
     # https://projects-static.raspberrypi.org/projects/generic-theory-pitch-roll-yaw/1da6c9e518533fe8c1f70d7445fd6880d7dac12a/en/images/orientation.png
 
-    print("-----------------------------")
-    print(compass)
-    print("-----------------------------")
-    print(pitch)
-    print(roll)
-    print(yaw)
+    x = {
+        "timestamp": datetime.datetime.now().isoformat()
+        "compass": compass,
+        "pitch": pitch,
+        "roll": roll,
+        "yaw": yaw
+    }
+    jsonString = json.dumps(x)
+    print(jsonString)
 
     time.sleep(60)
