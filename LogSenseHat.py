@@ -26,6 +26,10 @@ while(True):
         "yaw": yaw
     }
     jsonString = json.dumps(x)
-    print(jsonString)
+
+    outF = open("/logs/sensehat.log", "a")
+    outF.write(jsonString)
+    outF.write("\n")
+    outF.close()
 
     time.sleep(60)
