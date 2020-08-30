@@ -1,4 +1,5 @@
 from sense_hat import SenseHat
+import time
 
 sense = SenseHat()
 
@@ -18,4 +19,4 @@ while(True):
     print("-----------------------------")
     print(gyro)
 
-    time.Sleep(60)
+    time.sleep(60)
