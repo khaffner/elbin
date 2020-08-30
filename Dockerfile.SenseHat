@@ -1,6 +1,6 @@
 # Credits to https://github.com/bmwshop/sensehat/blob/master/Dockerfile
 
-FROM armhf:ubuntu
+FROM ubuntu:18.04
 
 RUN apt-get update && apt-get install -y curl python-numpy python-pil 
 WORKDIR /tmp
