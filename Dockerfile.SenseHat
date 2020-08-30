@@ -15,6 +15,9 @@ RUN dpkg -i librtimulib-dev_7.2.1-3_armhf.deb librtimulib-utils_7.2.1-3_armhf.de
 
 ADD LogSenseHat.py /LogSenseHat.py
 
+# Generated with https://www.raspberrypi.org/documentation/hardware/sense-hat/
+ADD RTIMULib.ini /etc/RTIMULib.ini
+
 RUN rm -f /tmp/*.deb
 RUN apt-get clean
 
