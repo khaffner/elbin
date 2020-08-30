@@ -35,8 +35,6 @@ services:
     volumes: 
       - homeassistant-config:/config
       - logs:/logs:ro
-    devices:
-      - "/dev/ttyUSB_GPS:/dev/ttyUSB0"
     network_mode: host
     restart: unless-stopped
     ports: 
