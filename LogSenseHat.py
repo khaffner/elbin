@@ -10,6 +10,8 @@ while(True):
 
     orientationString = json.dumps(orientation)
 
+    print(orientationString)
+
     outF = open("/logs/sensehat.log", "a")
     outF.write(orientationString)
     outF.write("\n")
