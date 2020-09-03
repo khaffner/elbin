@@ -7,11 +7,11 @@ sense = SenseHat()
 
 while(True):
     compass = sense.get_compass() # float
-    gyro = sense.get_gyroscope()
+    orientation = sense.get_orientation()
     
-    pitch = "{pitch}".format(**gyro) # float
-    roll = "{roll}".format(**gyro) # float
-    yaw = "{yaw}".format(**gyro) # float
+    pitch = "{pitch}".format(**orientation) # float
+    roll = "{roll}".format(**orientation) # float
+    yaw = "{yaw}".format(**orientation) # float
     # https://projects-static.raspberrypi.org/projects/generic-theory-pitch-roll-yaw/1da6c9e518533fe8c1f70d7445fd6880d7dac12a/en/images/orientation.png
 
     x = {
