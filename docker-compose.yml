@@ -23,13 +23,13 @@ services:
       - /dev:/dev
     privileged: true
 #################################################
-  sensehat:
-    container_name: SenseHat
+  orientation:
+    container_name: Orientation
     environment: 
       - TZ=Europe/Oslo
     build:
       context: .
-      dockerfile: Dockerfile.SenseHat
+      dockerfile: Dockerfile.Orientation
     volumes: 
       - logs:/logs
       - /dev/gpiomem:/dev/gpiomem
