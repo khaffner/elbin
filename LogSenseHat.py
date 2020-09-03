@@ -28,4 +28,4 @@ while(True):
     outF.write("\n")
     outF.close()
 
-    time.sleep(60)
+    time.sleep(1)
