@@ -2,15 +2,13 @@
 #   The hostname should be elbin 
 #   The username is pi
 #   The host is a Raspberry Pi 3B
-#   The CAN hat is installed
-#   Home Assistant will be used as UI for the data
 # Run this script with sudo, with this repo folder as working directory
 
 # Update the system
 apt-get update
 apt-get upgrade
 
-# Install docker
+# Install docker and docker compose
 curl -fsSL https://get.docker.com -o get-docker.sh
 sh get-docker.sh
 # https://devdojo.com/bobbyiliev/how-to-install-docker-and-docker-compose-on-raspberry-pi
@@ -20,7 +18,7 @@ apt-get install python3 python3-pip -y
 pip3 install docker-compose
 usermod -aG docker pi
 
-# Install gps packages
+# Install gps packages, Home Assistant telnets to the port enabled by gpsd.
 apt-get install gpsd -y
 
 # Host settings
