@@ -10,14 +10,6 @@ while($true) {
     $obj.timestamp = Get-Date -Format "o" # ISO 8601
     $obj.temp = $raw.Split(": ")[-2].Replace(" F","")
 
-    # Save results
-    $FolderPath = "/logs/temperature"
-    $FileName = Get-Date -Format "yyyy-MM-dd"
-    $FilePath = "$FolderPath/$FileName.json"
-    if(!(Test-Path $FolderPath)) {
-        New-Item $FolderPath -ItemType Directory
-    }
-    $obj | ConvertTo-Json -Compress | Out-File -Append -FilePath $FilePath
-    Write-Host $obj.temp
+    Write-Log -SensorName "temperature" -Text ($obj | ConvertTo-Json -Compress)
     Start-Sleep -Seconds 59
 }

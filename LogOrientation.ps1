@@ -14,15 +14,6 @@ while($true) {
     $obj.yaw = $src.yaw #Compass
     $obj.roll = $src.roll
 
-    # Save results
-    $FolderPath = "/logs/orientation"
-    $FileName = Get-Date -Format "yyyy-MM-dd"
-    $FilePath = "$FolderPath/$FileName.json"
-    if(!(Test-Path $FolderPath)) {
-        New-Item $FolderPath -ItemType Directory
-    }
-    $json = $obj | ConvertTo-Json -Compress
-    $json | Out-File -Append -FilePath $FilePath
-    Write-Host $json
+    Write-Log -SensorName "orientation" -Text ($obj | ConvertTo-Json -Compress)
     Start-Sleep -Seconds 10
 }
