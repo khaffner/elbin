@@ -1,13 +1,13 @@
 version: '3'
 services: 
 #################################################  
-  can:
-    container_name: CAN
+  motor:
+    container_name: Motor
     environment: 
       - TZ=Europe/Oslo
     build:
       context: .
-      dockerfile: Dockerfile.CAN
+      dockerfile: Dockerfile.Motor
     volumes: 
       - logs:/logs
 #################################################
