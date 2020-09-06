@@ -1,3 +1,3 @@
 FROM homeassistant/raspberrypi3-homeassistant:stable
 
-RUN mkdir /can-data
+RUN mkdir /logs

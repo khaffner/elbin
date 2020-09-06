@@ -3,6 +3,6 @@ FROM mcr.microsoft.com/powershell:lts-arm32v7-ubuntu-bionic
 RUN apt-get update && apt-get install can-utils -y
 RUN mkdir /logs
 
-ADD ParseCAN.ps1 /app/
+ADD LogMotor.ps1 /app/LogMotor.ps1
 
-ENTRYPOINT [ "pwsh", "-File", "/app/ParseCAN.ps1" ]
+ENTRYPOINT [ "pwsh", "-File", "/app/LogMotor.ps1" ]
