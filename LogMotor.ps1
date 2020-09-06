@@ -36,12 +36,5 @@ $SampleArray | ForEach-Object {
     # Use IDFriendlyName as folder name if possible, use ID as fallback
     $FolderName = $Frame.IDFriendlyName ? $Frame.IDFriendlyName : $Frame.ID
     
-    # Save results
-    $FolderPath = "/logs/can/$FolderName"
-    $FileName = Get-Date -Format "yyyy-MM-dd"
-    $FilePath = "$FolderPath/$FileName.json"
-    if(!(Test-Path $FolderPath)) {
-        New-Item $FolderPath -ItemType Directory
-    }
-    $Frame | ConvertTo-Json -Compress | Out-File -Append -FilePath $FilePath
+    Write-Log -SensorName $FolderName -String ($Frame | ConvertTo-Json -Compress)
 }
