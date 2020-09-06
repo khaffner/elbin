@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/powershell:lts-arm32v7-ubuntu-bionic
+FROM mcr.microsoft.com/powershell:lts-arm32v7-ubuntu-18.04
 
 RUN apt-get update && apt-get install digitemp -y
 
