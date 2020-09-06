@@ -7,7 +7,7 @@ services:
       - TZ=Europe/Oslo
     build:
       context: .
-      dockerfile: Dockerfile.Motor
+      dockerfile: ./Motor/Dockerfile
     volumes: 
       - logs:/logs
 #################################################
@@ -17,7 +17,7 @@ services:
       - TZ=Europe/Oslo
     build:
       context: .
-      dockerfile: Dockerfile.Temperature
+      dockerfile: ./Temperature/Dockerfile
     volumes: 
       - logs:/logs
       - /dev:/dev
@@ -29,7 +29,7 @@ services:
       - TZ=Europe/Oslo
     build:
       context: .
-      dockerfile: Dockerfile.Orientation
+      dockerfile: ./Orientation/Dockerfile
     volumes: 
       - logs:/logs
       - /dev/gpiomem:/dev/gpiomem
@@ -39,7 +39,7 @@ services:
     container_name: HomeAssistant
     build:
       context: .
-      dockerfile: Dockerfile.HomeAssistant
+      dockerfile: ./HomeAssistant/Dockerfile
     environment: 
       - TZ=Europe/Oslo
     volumes: 
@@ -54,7 +54,7 @@ services:
     container_name: Portainer
     build:
       context: .
-      dockerfile: Dockerfile.Portainer
+      dockerfile: ./Portainer/Dockerfile
     restart: unless-stopped
     command: -H unix:///var/run/docker.sock
     ports: 
@@ -68,7 +68,7 @@ services:
     container_name: Syncthing
     build:
       context: .
-      dockerfile: Dockerfile.Syncthing
+      dockerfile: ./Syncthing/Dockerfile
     restart: unless-stopped
     ports:
       - 8384:8384
@@ -82,7 +82,7 @@ services:
     container_name: Heimdall
     build:
       context: .
-      dockerfile: Dockerfile.Heimdall
+      dockerfile: ./Heimdall/Dockerfile
     environment:
       - TZ=Europe/Oslo
     volumes:
@@ -96,9 +96,9 @@ services:
     container_name: DuckDNS
     build:
       context: .
-      dockerfile: Dockerfile.DuckDNS
+      dockerfile: ./DuckDNS/Dockerfile
     env_file:
-      - DuckDNS.env
+      - ./DuckDNS/DuckDNS.env
     restart: unless-stopped
 #################################################
 volumes: 
