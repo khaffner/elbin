@@ -3,8 +3,10 @@ class Orientation {
     [int]$pitch
     [int]$yaw
     [int]$roll
-    [string]$rollDirection
-    [string]$pitchDirection
+    [int]$rollFriendly
+    [int]$pitchFriendly
+    [string]$rollDirection = "level"
+    [string]$pitchDirection = "level"
 }
 
 while($true) {
@@ -12,36 +14,30 @@ while($true) {
 
     $obj = New-Object Orientation
     $obj.timestamp = Get-Date -Format "o" # ISO 8601
-    $obj.pitch = $src.pitch
     $obj.yaw = $src.yaw #Compass
+    $obj.pitch = $src.pitch
+    $obj.pitchFriendly = $obj.pitch
     $obj.roll = $src.roll
+    $obj.rollFriendly = $obj.roll
 
     # Friendlier values for roll (sideways)
-    if ($obj.roll -lt 180) {
+    if ($obj.roll -in 3..180) {
         $obj.rollDirection = "right"
     }
-
-    if($obj.roll -eq 0) {
-        $obj.rollDirection = "level"
-    }
     
-    if($obj.roll -gt 180) {
+    if($obj.roll -in 181..357) {
         $obj.rollDirection = "left"
-        $obj.roll = 360 - $obj.roll #Mirrored
+        $obj.rollFriendly = 360 - $obj.roll #Mirrored
     }
 
     # Friendlier values for pitch (bow up/down)
-    if ($obj.pitch -lt 180) {
+    if ($obj.pitch -in 3..180) {
         $obj.pitchDirection = "up"
     }
-
-    if($obj.pitch -eq 0) {
-        $obj.pitchDirection = "level"
-    }
     
-    if($obj.pitch -gt 180) {
+    if($obj.pitch -in 181..357) {
         $obj.pitchDirection = "down"
-        $obj.pitch = 360 - $obj.pitch #Flipped
+        $obj.pitchFriendly = 360 - $obj.pitch #Flipped
     }
 
     Write-Log -SensorName "orientation" -Text ($obj | ConvertTo-Json -Compress)
