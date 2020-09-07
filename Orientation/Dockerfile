@@ -16,7 +16,7 @@ RUN dpkg -i librtimulib-dev_7.2.1-3_armhf.deb librtimulib-utils_7.2.1-3_armhf.de
 RUN mkdir /app
 ADD /Orientation/Orientation.py /app/Orientation.py
 ADD /Orientation/LogOrientation.ps1 /app/LogOrientation.ps1
-ADD profile.ps1 /opt/microsoft/powershell/7/profile.ps1
+ADD profile.ps1 /opt/microsoft/powershell/7-lts/profile.ps1
 
 # Generated with https://www.raspberrypi.org/documentation/hardware/sense-hat/
 ADD /Orientation/RTIMULib.ini /etc/RTIMULib.ini
