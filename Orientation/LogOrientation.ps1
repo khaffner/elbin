@@ -4,7 +4,7 @@ class Orientation {
     [int]$yaw
     [int]$roll
     [int]$rollFriendly
-    [string]$rollDirection = "Centered"
+    [string]$rollDirection = "centered"
 }
 
 while($true) {
@@ -18,11 +18,11 @@ while($true) {
     $obj.rollFriendly = $src.roll
 
     if ($obj.rollFriendly -lt 180) {
-        $obj.rollDirection = "Right"
+        $obj.rollDirection = "right"
     }
     
     if($obj.rollFriendly -gt 180) {
-        $obj.rollDirection = "Left"
+        $obj.rollDirection = "left"
         $obj.rollFriendly = 360 - $obj.roll #Flipped
     }
 
