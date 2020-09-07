@@ -1,0 +1,138 @@
+title: Boat Assistant
+views:
+  - badges: []
+    cards:
+      - cards:
+          - cards:
+              - entity: sensor.gps_speed_knots
+                max: 10
+                min: 0
+                severity:
+                  green: 0
+                  red: 8
+                  yellow: 5
+                type: gauge
+              - entity: sensor.motor_rpm
+                max: 5000
+                min: 0
+                name: Motor
+                severity:
+                  green: 0
+                  red: 4000
+                  yellow: 2000
+                type: gauge
+              - entity: sensor.motor_amp
+                max: 200
+                min: 0
+                name: Motor
+                severity:
+                  green: 0
+                  red: 150
+                  yellow: 75
+                type: gauge
+              - entity: sensor.motor_temp
+                max: 100
+                min: 0
+                name: Motor
+                severity:
+                  green: 0
+                  red: 75
+                  yellow: 50
+                type: gauge
+              - entity: sensor.battery_volt
+                max: 60
+                min: 48
+                name: Motor
+                type: gauge
+            type: horizontal-stack
+          - cards:
+              - entity: sensor.water_temperature
+                max: 30
+                min: 0
+                name: Water
+                severity:
+                  green: 20
+                  red: 15
+                  yellow: 18
+                type: gauge
+            type: horizontal-stack
+          - cards:
+              - entity: sensor.pitch_degrees
+                max: 25
+                min: 0
+                severity:
+                  green: 0
+                  red: 20
+                  yellow: 10
+                type: gauge
+              - entity: sensor.roll_degrees
+                max: 25
+                min: 0
+                severity:
+                  green: 0
+                  red: 20
+                  yellow: 10
+                type: gauge
+            type: horizontal-stack
+        type: vertical-stack
+    icon: 'mdi:anchor'
+    panel: true
+    path: main
+    title: Main
+  - badges: []
+    cards:
+      - cards:
+          - entity: sensor.tl_mr3020_kib_s_received
+            graph: line
+            hours_to_show: 12
+            icon: 'mdi:signal-3g'
+            name: Download
+            type: sensor
+          - entity: sensor.tl_mr3020_kib_s_sent
+            graph: line
+            hours_to_show: 12
+            icon: 'mdi:signal-3g'
+            name: Upload
+            type: sensor
+        type: horizontal-stack
+      - cards:
+          - entity: sensor.processor_use
+            max: 100
+            min: 0
+            name: CPU
+            severity:
+              green: 0
+              red: 75
+              yellow: 50
+            type: gauge
+          - entity: sensor.memory_use_percent
+            max: 100
+            min: 0
+            name: RAM
+            severity:
+              green: 0
+              red: 75
+              yellow: 50
+            type: gauge
+          - entity: sensor.disk_use_percent
+            max: 100
+            min: 0
+            name: Storage
+            severity:
+              green: 0
+              red: 75
+              yellow: 50
+            type: gauge
+          - entity: sensor.cpu_temperature
+            max: 100
+            min: 0
+            name: Temp
+            severity:
+              green: 0
+              red: 70
+              yellow: 50
+            type: gauge
+        type: horizontal-stack
+    icon: 'mdi:cogs'
+    path: system
+    title: system

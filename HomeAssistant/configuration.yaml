@@ -1,0 +1,99 @@
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+    # Text to speech
+    tts:
+      - platform: google_translate
+    
+    group: !include groups.yaml
+    automation: !include automations.yaml
+    script: !include scripts.yaml
+    scene: !include scenes.yaml
+    
+    sensor:
+      - platform: gpsd
+    
+      - platform: systemmonitor
+        resources:
+          - type: disk_use_percent
+            arg: /
+          - type: memory_use_percent
+          - type: processor_use
+     
+      - platform: command_line
+        name: CPU Temperature
+        command: "cat /sys/class/thermal/thermal_zone0/temp"
+        unit_of_measurement: "°C"
+        value_template: '{{ value | multiply(0.001) | round(0) }}'
+    
+      - platform: command_line
+        name: Temperature
+        command: cd /logs/temperature && tail -n 1 $(ls -Art | tail -n 1)
+        unit_of_measurement: "°C"
+        json_attributes:
+          - water
+        value_template: '{{ value_json }}'
+    
+      - platform: command_line
+        name: Orientation
+        command: cd /logs/orientation && tail -n 1 $(ls -Art | tail -n 1)
+        unit_of_measurement: "°C"
+        json_attributes:
+          - rollDirection
+          - pitchDirection
+          - rollFriendly
+          - pitchFriendly
+          - yaw
+        value_template: '{{ value_json }}'
+        scan_interval: 1
+     
+      - platform: template
+        sensors:
+          # Orientation
+          pitch_degrees:
+            friendly_name: "Pitch"
+            unit_of_measurement: "°"
+            value_template: "{{state_attr('sensor.orientation','pitchFriendly')}}"
+    
+          roll_degrees:
+            friendly_name: "Roll"
+            unit_of_measurement: "°"
+            value_template: "{{state_attr('sensor.orientation','rollFriendly')}}"
+    
+          pitch_direction:
+            friendly_name: "Pitch"
+            value_template: "{{state_attr('sensor.orientation','pitchDirection')}}"
+         
+          roll_direction:
+            friendly_name: "Roll"
+            value_template: "{{state_attr('sensor.orientation','RollDirection')}}"
+          # Temperatures
+          water_temperature:
+            friendly_name: "Water Temperature"
+            unit_of_measurement: "°C"
+            value_template: "{{state_attr('sensor.temperature','water')}}"
+          # GPS
+          gps_speed_knots:
+            friendly_name: "GPS Speed"
+            unit_of_measurement: "Knots"
+            value_template: "{{ (state_attr('sensor.gps', 'speed') *1.943844) | round(1) }}"
+          # Motor
+          motor_rpm:
+            friendly_name: "Motor RPM"
+            unit_of_measurement: "RPM"
+            value_template: "1500" # demo
+    
+          motor_amp:
+            friendly_name: "Motor Amps"
+            unit_of_measurement: "Ampere"
+            value_template: "100" #demo
+    
+          motor_temp:
+            friendly_name: "Motor Temperature"
+            unit_of_measurement: "°C"
+            value_template: "56" # demo
+          # Battery
+          battery_volt:
+            friendly_name: "Battery Voltage"
+            unit_of_measurement: "V"
+            value_template: "50" # demo
