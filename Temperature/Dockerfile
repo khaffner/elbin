@@ -7,4 +7,4 @@ ADD /Temperature/LogTemperature.ps1 /app
 ADD profile.ps1 /opt/microsoft/powershell/7/profile.ps1
 RUN mkdir /logs
 
-ENTRYPOINT [ "pwsh", "-File", "/app/LogTemp.ps1" ]
+ENTRYPOINT [ "pwsh", "-File", "/app/LogTemperature.ps1" ]
