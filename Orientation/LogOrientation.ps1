@@ -32,7 +32,7 @@ while($true) {
 
     # Friendlier values for pitch (bow up/down)
     if ($obj.pitch -lt 180) {
-        $obj.pitchDirection = "down"
+        $obj.pitchDirection = "up"
     }
 
     if($obj.pitch -eq 0) {
@@ -40,7 +40,7 @@ while($true) {
     }
     
     if($obj.pitch -gt 180) {
-        $obj.pitchDirection = "up"
+        $obj.pitchDirection = "down"
         $obj.pitch = 360 - $obj.pitch #Flipped
     }
 
