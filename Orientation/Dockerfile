@@ -14,12 +14,12 @@ RUN curl -LO  https://archive.raspberrypi.org/debian/pool/main/r/rtimulib/librti
 RUN dpkg -i librtimulib-dev_7.2.1-3_armhf.deb librtimulib-utils_7.2.1-3_armhf.deb librtimulib7_7.2.1-3_armhf.deb python-rtimulib_7.2.1-3_armhf.deb python-sense-hat_2.1.0-1_armhf.deb
 
 RUN mkdir /app
-ADD Orientation.py /app/Orientation.py
-ADD LogOrientation.ps1 /app/LogOrientation.ps1
-ADD profile /opt/microsoft/powershell/7/profile.ps1
+ADD /Orientation/Orientation.py /app/Orientation.py
+ADD /Orientation/LogOrientation.ps1 /app/LogOrientation.ps1
+ADD profile.ps1 /opt/microsoft/powershell/7/profile.ps1
 
 # Generated with https://www.raspberrypi.org/documentation/hardware/sense-hat/
-ADD RTIMULib.ini /etc/RTIMULib.ini
+ADD /Orientation/RTIMULib.ini /etc/RTIMULib.ini
 
 RUN rm -f /tmp/*.deb
 RUN apt-get clean
