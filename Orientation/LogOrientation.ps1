@@ -3,8 +3,7 @@ class Orientation {
     [int]$pitch
     [int]$yaw
     [int]$roll
-    [int]$rollFriendly
-    [string]$rollDirection = "centered"
+    [string]$rollDirection
 }
 
 while($true) {
@@ -15,15 +14,18 @@ while($true) {
     $obj.pitch = $src.pitch
     $obj.yaw = $src.yaw #Compass
     $obj.roll = $src.roll
-    $obj.rollFriendly = $src.roll
 
-    if ($obj.rollFriendly -lt 180) {
+    if ($obj.roll -lt 180) {
         $obj.rollDirection = "right"
     }
+
+    if($obj.roll -eq 0) {
+        $obj.rollDirection = "centered"
+    }
     
-    if($obj.rollFriendly -gt 180) {
+    if($obj.roll -gt 180) {
         $obj.rollDirection = "left"
-        $obj.rollFriendly = 360 - $obj.roll #Flipped
+        $obj.roll = 360 - $obj.roll #Flipped
     }
 
     Write-Log -SensorName "orientation" -Text ($obj | ConvertTo-Json -Compress)
