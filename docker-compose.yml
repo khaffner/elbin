@@ -101,9 +101,22 @@ services:
       - ./DuckDNS/DuckDNS.env
     restart: unless-stopped
 #################################################
+  code-server:
+    container_name: Code-Server
+    build:
+      context: .
+      dockerfile: ./Code-Server/Dockerfile
+    volumes:
+      - code-server-config:/config
+      - homeassistant-config:/dockervolumes/homeassistant-config
+    ports: 
+      - "8443:8443"
+    restart: unless-stopped
+#################################################
 volumes: 
   logs:
   homeassistant-config:
   portainer-data:
   syncthing-config:
   heimdall-config:
+  code-server-config:
