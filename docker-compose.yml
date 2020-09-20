@@ -111,6 +111,9 @@ services:
       - homeassistant-config:/dockervolumes/homeassistant-config
     ports: 
       - "8443:8443"
+    environment:
+      - PUID=0
+      - PGID=0
     restart: unless-stopped
 #################################################
 volumes: 
