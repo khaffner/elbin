@@ -1,4 +1,13 @@
-# Sample data until I have the hardware
+# Configure CAN adapter
+# https://www.ebay.com/itm/USB-To-CAN-Debugger-USB-CAN-USB2CAN-Converter-Adapter-CAN-Bus-Analyzer/283981754476
+# http://pascal-walter.blogspot.com/2015/08/installing-lawicel-canusb-on-linux.html
+Write-Host "Configuring can0"
+slcand -o -c -f -s8 /dev/serial/by-id/usb-Silicon_Labs_CP2102_USB_to_UART_Bridge_Controller_0001-if00-port0 can0
+Start-Sleep -Seconds 2
+Write-Host "Bringing up can0"
+ifconfig can0 up
+
+# Sample data until I have the hardware working
 $SampleArray = @(
     "can0 1DFF6773 [8] 00 0B 3B 9F 03 02 04 5A",
     "can0 1DFF6773 [6] 01 A1 12 19 09 09",

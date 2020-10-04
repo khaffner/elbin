@@ -10,6 +10,8 @@ services:
       dockerfile: ./Motor/Dockerfile
     volumes: 
       - logs:/logs
+      - /dev:/dev
+    privileged: true
 #################################################
   temperature:
     container_name: Temperature
