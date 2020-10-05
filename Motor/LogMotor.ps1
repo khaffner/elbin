@@ -1,5 +1,4 @@
 # Configure CAN adapter
-# https://www.ebay.com/itm/USB-To-CAN-Debugger-USB-CAN-USB2CAN-Converter-Adapter-CAN-Bus-Analyzer/283981754476
 # http://pascal-walter.blogspot.com/2015/08/installing-lawicel-canusb-on-linux.html
 Write-Host "Configuring can0"
 slcand -o -c -f -s8 /dev/serial/by-id/usb-Silicon_Labs_CP2102_USB_to_UART_Bridge_Controller_0001-if00-port0 can0

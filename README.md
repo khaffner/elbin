@@ -3,7 +3,7 @@ The boat is an "Albin Siesta", but named Elbin because of the electrification.
 This repo contains everything running on the Raspberry Pi on the boat. \
 Every part runs in its own Docker container, and logs as json to files on a shared volume.
 
-Electric motor info gets pulled via CANbus from the motor controller, a Curtis 1236. HW TBD. \
+Electric motor info gets pulled via CANbus from the motor controller, a Curtis 1236, using an [USB adapter](https://www.ebay.com/itm/USB-To-CAN-Debugger-USB-CAN-USB2CAN-Converter-Adapter-CAN-Bus-Analyzer/283981754476). \
 GPS coordinates from [USB GPS antenna](https://www.digitalimpuls.no/diverse/134873s/globalsat-vanntett-gps-mottaker-usb-tilkobling-magnetfeste-48-kanaler), uses gpsd. \
 Temperature is measured with an [USB temperature sensor](https://usbtemp.com/). \
 [Home Assistant](https://www.home-assistant.io/) is the GUI. Reads all the logs every second and visualizes the data. \
