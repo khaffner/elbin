@@ -1,12 +1,15 @@
 # Elbin
 The boat is an "Albin Siesta", but named Elbin because of the electrification.
 This repo contains everything running on the Raspberry Pi on the boat. \
-Every part runs in its own Docker container, and logs as json to files on a shared volume.
+Every part runs in its own Docker container, and logs as json to files on a shared volume where necessary.
 
 Electric motor info gets pulled via CANbus from the motor controller, a Curtis 1236, using an [USB adapter](https://www.ebay.com/itm/USB-To-CAN-Debugger-USB-CAN-USB2CAN-Converter-Adapter-CAN-Bus-Analyzer/283981754476). \
 GPS coordinates from [USB GPS antenna](https://www.digitalimpuls.no/diverse/134873s/globalsat-vanntett-gps-mottaker-usb-tilkobling-magnetfeste-48-kanaler), uses gpsd. \
-Temperature is measured with an [USB temperature sensor](https://usbtemp.com/). \
-[Home Assistant](https://www.home-assistant.io/) is the GUI. Reads all the logs every second and visualizes the data. \
+Fjord temperature is measured with an [USB temperature sensor](https://usbtemp.com/). \
+Lounge tempereature is measured with an [Aqara temperature sensor](https://www.aqara.com/us/temperature_humidity_sensor.html).\
+Motor temperature and bilge water presence is measured with an [Aqara water sensor](https://www.aqara.com/us/water_leak_sensor.html). \
+These two sensors are received by a [Conbee 2](https://phoscon.de/en/conbee2) and managed by [deCONZ](https://hub.docker.com/r/marthoc/deconz)\
+[Home Assistant](https://www.home-assistant.io/) is the GUI. Reads all the logs every second and visualizes the data and other sensors. \
 [Portainer](https://www.portainer.io/) for graphical docker management. Mainly for remote log reading, command line access into containers and image management. \
 [DuckDNS](http://www.duckdns.org/) for dns. This runs on mobile data, IP changes often. \
 [Syncthing](https://syncthing.net/) for syncing(/"backup") of docker volumes to off site computer. \
