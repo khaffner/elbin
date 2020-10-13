@@ -15,6 +15,9 @@ services:
       - zigbee-config:/root/.local/share/dresden-elektronik/deCONZ
       - /dev:/dev
     privileged: true
+    ports:
+      - 8080:8080
+      - 4430:4430
 #################################################  
   motor:
     container_name: Motor
