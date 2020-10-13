@@ -1,6 +1,21 @@
 version: '3'
 services: 
 #################################################  
+zigbee:
+  container_name: ZigBee
+  environment: 
+    - TZ=Europe/Oslo
+    - DECONZ_WEB_PORT=8080
+    - DECONZ_WS_PORT=4430
+    - DECONZ_DEVICE=/dev/serial/by-id/usb-dresden_elektronik_ingenieurtechnik_GmbH_ConBee_II_DE2231183-if00
+  build:
+    context: .
+    dockerfile: ./ZigBee/Dockerfile
+  volumes: 
+    - zigbee-config:/root/.local/share/dresden-elektronik/deCONZ
+    - /dev:/dev
+  privileged: true
+#################################################  
   motor:
     container_name: Motor
     environment: 
@@ -125,3 +140,4 @@ volumes:
   syncthing-config:
   heimdall-config:
   code-server-config:
+  zigbee-config:
