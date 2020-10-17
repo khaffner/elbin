@@ -31,7 +31,6 @@ services:
       - logs:/logs
       - /dev:/dev
     privileged: true
-    restart: unless-stopped
 #################################################
   temperature:
     container_name: Temperature
