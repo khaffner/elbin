@@ -49,30 +49,55 @@ views:
               - entity: sensor.water_temperature
                 max: 30
                 min: 0
-                name: Water
-                severity:
-                  green: 20
-                  red: 15
-                  yellow: 18
+                name: Fjord
+                type: gauge
+              - entity: sensor.multi_sensor
+                max: 30
+                min: 0
+                type: gauge
+              - entity: sensor.bilge_temperature
+                max: 30
+                min: 0
+                name: Bilge
                 type: gauge
             type: horizontal-stack
           - cards:
-              - entity: sensor.pitch_degrees
-                max: 25
-                min: 0
-                severity:
-                  green: 0
-                  red: 20
-                  yellow: 10
-                type: gauge
-              - entity: sensor.roll_degrees
-                max: 25
-                min: 0
-                severity:
-                  green: 0
-                  red: 20
-                  yellow: 10
-                type: gauge
+              - type: vertical-stack
+                cards:
+                  - type: gauge
+                    entity: sensor.pitch_degrees
+                    min: 0
+                    max: 25
+                    severity:
+                      green: 0
+                      yellow: 5
+                      red: 15
+                  - type: markdown
+                    content: >-
+                      <center> <ha-icon icon="mdi:arrow-{{
+                      states.sensor.orientation.attributes.pitchDirection
+                      }}"></ha-icon> </center>
+              - type: vertical-stack
+                cards:
+                  - type: gauge
+                    entity: sensor.roll_degrees
+                    min: 0
+                    max: 25
+                    severity:
+                      green: 0
+                      yellow: 5
+                      red: 15
+                  - type: markdown
+                    content: >-
+                      <center> <ha-icon icon="mdi:arrow-{{
+                      states.sensor.orientation.attributes.rollDirection
+                      }}"></ha-icon> </center>
+            type: horizontal-stack
+          - cards:
+              - type: glance
+                entities:
+                  - entity: binary_sensor.water_5
+                state_color: false
             type: horizontal-stack
         type: vertical-stack
     icon: 'mdi:anchor'
