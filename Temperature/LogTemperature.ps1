@@ -1,6 +1,6 @@
 class Temperature {
     [datetime]$timestamp
-    [string]$water
+    [int]$water
 }
 digitemp_DS9097 -i -s /dev/serial/by-id/usb-Prolific_Technology_Inc._USB-Serial_Controller-if00-port0 -c /etc/digitemp.conf
 while($true) {
