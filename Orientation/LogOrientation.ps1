@@ -25,21 +25,19 @@ while($true) {
     $obj.rollFriendly = $obj.roll
 
     # Friendlier values for roll (sideways)
-    if ($obj.roll -in 3..180) {
+    if ($obj.roll -in 0..179) {
         $obj.rollDirection = "right"
     }
-    
-    if($obj.roll -in 181..357) {
+    if($obj.roll -in 180..359) {
         $obj.rollDirection = "left"
         $obj.rollFriendly = 360 - $obj.roll #Mirrored
     }
 
     # Friendlier values for pitch (bow up/down)
-    if ($obj.pitch -in 3..180) {
+    if ($obj.pitch -in 0..179) {
         $obj.pitchDirection = "up"
     }
-    
-    if($obj.pitch -in 181..357) {
+    if($obj.pitch -in 180..359) {
         $obj.pitchDirection = "down"
         $obj.pitchFriendly = 360 - $obj.pitch #Flipped
     }
