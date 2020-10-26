@@ -9,6 +9,7 @@ Fjord temperature is measured with an [USB temperature sensor](https://usbtemp.c
 Lounge tempereature is measured with an [Aqara temperature sensor](https://www.aqara.com/us/temperature_humidity_sensor.html).\
 Motor temperature and bilge water presence is measured with an [Aqara water sensor](https://www.aqara.com/us/water_leak_sensor.html). \
 These two sensors are received by a [Conbee 2](https://phoscon.de/en/conbee2) and managed by [deCONZ](https://hub.docker.com/r/marthoc/deconz)\
+The bilge pump is controlled by a [Wifi relay](https://www.ebay.com/itm/Sonoff-WiFi-Wireless-witch-Home-Relay-Board-Delay-Module-APP-Smart-Home-Good/283836633645?ssPageName=STRK%3AMEBIDX%3AIT&var=585269344101&_trksid=p2057872.m2749.l2649) \
 [Home Assistant](https://www.home-assistant.io/) is the GUI. Reads all the logs every second and visualizes the data and other sensors. \
 [Portainer](https://www.portainer.io/) for graphical docker management. Mainly for remote log reading, command line access into containers and image management. \
 [DuckDNS](http://www.duckdns.org/) for dns. This runs on mobile data, IP changes often. \

@@ -9,6 +9,16 @@ default_config:
     automation: !include automations.yaml
     script: !include scripts.yaml
     scene: !include scenes.yaml
+
+    switch:
+      - platform: command_line
+        switches:
+          wifirelay1:
+            # Sniffed between eWeLink app and device with Wireshark and recreated with curl. Not sure what it all means, but it works ¯\_(ツ)_/¯
+            command_on: /usr/bin/curl --request POST --data '{"sequence":"1603737293226","deviceid":"1000f48bb9","selfApikey":"52a1150f-574a-4b88-84f1-be8a3bfa5bdc","iv":"NDIwMTI4ODcxNzc3NzAxNQ==","encrypt":true,"data":"z+h7Zbi9PsqBmPqkgKF/Gg=="}' 192.168.100.10:8081/zeroconf/switch
+            command_off: /usr/bin/curl --request POST --data '{"sequence":"1603743485850","deviceid":"1000f48bb9","selfApikey":"52a1150f-574a-4b88-84f1-be8a3bfa5bdc","iv":"MDQxMzQyNzgzNzcwNjE3MQ==","encrypt":true,"data":"fpwMlFiKqLgrL2ZA8fSJWRfKS6sfEpbBFGXHlY2xj0A="}' 192.168.100.10:8081/zeroconf/switch
+            friendly_name: Wifi Relay 1
+
     
     sensor:
       - platform: gpsd
