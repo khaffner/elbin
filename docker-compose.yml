@@ -87,20 +87,6 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - portainer-data:/data
 #################################################
-  heimdall:
-    container_name: Heimdall
-    build:
-      context: .
-      dockerfile: ./Heimdall/Dockerfile
-    environment:
-      - TZ=Europe/Oslo
-    volumes:
-      - heimdall-config:/config
-    ports:
-      - 80:80
-      - 443:443
-    restart: unless-stopped
-#################################################
   duckdns:
     container_name: DuckDNS
     build:

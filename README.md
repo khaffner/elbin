@@ -13,7 +13,6 @@ The bilge pump is controlled by a [Wifi relay](https://www.ebay.com/itm/Sonoff-W
 [Home Assistant](https://www.home-assistant.io/) is the GUI. Reads all the logs every second and visualizes the data and other sensors. \
 [Portainer](https://www.portainer.io/) for graphical docker management. Mainly for remote log reading, command line access into containers and image management. \
 [DuckDNS](http://www.duckdns.org/) for dns. This runs on mobile data, IP changes often. \
-[Heimdall](https://heimdall.site/) for "front page" on LAN. \
 Internet is provided by a [TP-Link TL-MR3020](https://www.prisjakt.no/product.php?e=1034742) for routing, wifi and ethernet, and a USB 3G modem with a data SIM in it.
 
 
