@@ -100,7 +100,4 @@ volumes:
   logs:
   homeassistant-config:
   portainer-data:
-  syncthing-config:
-  heimdall-config:
-  code-server-config:
   zigbee-config:
