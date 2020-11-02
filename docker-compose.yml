@@ -87,20 +87,6 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - portainer-data:/data
 #################################################
-  syncthing:
-    container_name: Syncthing
-    build:
-      context: .
-      dockerfile: ./Syncthing/Dockerfile
-    restart: unless-stopped
-    ports:
-      - 8384:8384
-      - 22000:22000
-    volumes:
-      - syncthing-config:/config
-      - logs:/logs
-      - homeassistant-config:/dockervolumes/homeassistant-config
-#################################################
   heimdall:
     container_name: Heimdall
     build:
@@ -122,21 +108,6 @@ services:
       dockerfile: ./DuckDNS/Dockerfile
     env_file:
       - ./DuckDNS/DuckDNS.env
-    restart: unless-stopped
-#################################################
-  code-server:
-    container_name: Code-Server
-    build:
-      context: .
-      dockerfile: ./Code-Server/Dockerfile
-    volumes:
-      - code-server-config:/config
-      - homeassistant-config:/dockervolumes/homeassistant-config
-    ports: 
-      - "8443:8443"
-    environment:
-      - PUID=0
-      - PGID=0
     restart: unless-stopped
 #################################################
 volumes: 
