@@ -4,6 +4,7 @@ This repo contains everything running on the Raspberry Pi on the boat. \
 Every part runs in its own Docker container, and logs as json to files on a shared volume where necessary.
 
 Electric motor info gets pulled via CANbus from the motor controller, a Curtis 1236, using an [USB adapter](https://www.ebay.com/itm/USB-To-CAN-Debugger-USB-CAN-USB2CAN-Converter-Adapter-CAN-Bus-Analyzer/283981754476). \
+Battery voltage reading: See separate [documentation](/Batteries/Batteries.md). \
 GPS coordinates from [USB GPS antenna](https://www.digitalimpuls.no/diverse/134873s/globalsat-vanntett-gps-mottaker-usb-tilkobling-magnetfeste-48-kanaler), uses gpsd. \
 Fjord temperature is measured with an [USB temperature sensor](https://usbtemp.com/). \
 Lounge tempereature is measured with an [Aqara temperature sensor](https://www.aqara.com/us/temperature_humidity_sensor.html).\
