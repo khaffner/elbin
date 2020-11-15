@@ -11,8 +11,7 @@ Each of them have their own Raspberry Pi Zero W, which have a minimal config:
 - Password changed
 - Hostname like batterypack1, batterypack2, etc
 - A small Flask webserver
-  - pip3 install Flask
-  - pip3 install adafruit_ina219
+  - pip3 install Flask adafruit_ina219 board
   - See [BatteryServer.py](BatteryServer.py)
   - Run it automatically on boot
   - Home Assistant can query this api
