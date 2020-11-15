@@ -1,6 +1,6 @@
 # Elbin
 The boat is an "Albin Siesta", but named Elbin because of the electrification.
-This repo contains everything running on the Raspberry Pi on the boat. \
+This repo contains everything running on the Raspberry Pies on the boat. \
 Every part runs in its own Docker container, and logs as json to files on a shared volume where necessary.
 
 Electric motor info gets pulled via CANbus from the motor controller, a Curtis 1236, using an [USB adapter](https://www.ebay.com/itm/USB-To-CAN-Debugger-USB-CAN-USB2CAN-Converter-Adapter-CAN-Bus-Analyzer/283981754476). \
@@ -22,6 +22,9 @@ Internet is provided by a [TP-Link TL-MR3020](https://www.prisjakt.no/product.ph
 - git clone https://github.com/khaffner/elbin.git /home/pi/elbin
 - sudo sh /home/pi/elbin/setup.sh
   - Read it first
+
+### Setup on the Raspberry Pi Zeros
+- See separate [documentation](/Batteries/Batteries.md)
 
 ### Running
 - In the elbin folder, run:
