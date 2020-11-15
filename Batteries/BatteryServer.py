@@ -25,4 +25,4 @@ def get_voltage(battery):
     return shunt_voltage
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host='0.0.0.0')
