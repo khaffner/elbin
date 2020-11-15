@@ -6,13 +6,15 @@ from adafruit_ina219 import ADCResolution, BusVoltageRange, INA219
 
 app = Flask(__name__)
 
-# Fix enum later, route must for now be 0x40, 0x41, 0x42 or ox43
 @app.route("/<battery>")
 def get_voltage(battery):
 
+    # Convert 1 to 0x40, 2 to 0x41, etc
+    addr = "0x" + str(39+int(battery)) 
+
     i2c_bus = board.I2C()
 
-    ina = INA219(i2c_bus, addr=battery)
+    ina = INA219(i2c_bus, addr=addr)
 
     ina.bus_adc_resolution = ADCResolution.ADCRES_12BIT_32S
     ina.shunt_adc_resolution = ADCResolution.ADCRES_12BIT_32S
