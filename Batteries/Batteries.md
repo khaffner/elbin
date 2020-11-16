@@ -12,7 +12,7 @@ Each of them have their own Raspberry Pi Zero W, which have this config:
 - Hostname like batterypack1, batterypack2, etc
 - Docker installed
   - curl -fsSL https://get.docker.com -o get-docker.sh
-  - sh get-docker.sh
+  - sudo sh get-docker.sh
   - sudo usermod -aG docker pi
 - A small Flask webserver running on docker. See [BatteryServer.py](BatteryServer.py).
   - docker build . -t batteryserver
