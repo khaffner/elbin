@@ -10,17 +10,13 @@ Each of them have their own Raspberry Pi Zero W, which have this config:
 - SSH enabled
 - Password changed
 - Hostname like batterypack1, batterypack2, etc
-- Docker installed
+- Docker and docker-compose installed
   - curl -fsSL https://get.docker.com -o get-docker.sh
   - sudo sh get-docker.sh
   - sudo usermod -aG docker pi
+  - sudo apt install python3-pip libffi-dev -y
+  - sudo pip3 install docker-compose
 - A small Flask webserver running on docker. See [BatteryServer.py](BatteryServer.py).
-  - docker build . -t batteryserver
-    - Builds the image of the server
-  - docker run -d -p 80:5000 -v /dev/gpio/:/dev/gpio/ --restart unless-stopped --name batteryserver batteryserver
-    - Starts the container in detached mode
-    - Exposes the flask port on port 80 on the host
-    - Shares the gpio pins into the container
-    - Restarts the container if it should crash
-    - Names it batteryserver
+  - docker-compose up --build
+    - See [docker-compose.yml](docker-compose.yml) for details
   - Home Assistant can now query http://batterypack1.local/1, and get the voltage of the first battery in the first pack.

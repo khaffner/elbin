@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+    batteryserver:
+        ports:
+            - '80:5000'
+        volumes:
+            - '/dev/gpio/:/dev/gpio/'
+        restart: unless-stopped
+        container_name: batteryserver
+        image: batteryserver
