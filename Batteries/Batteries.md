@@ -16,6 +16,11 @@ Each of them have their own Raspberry Pi Zero W, which have this config:
   - sudo usermod -aG docker pi
   - sudo apt install python3-pip libffi-dev -y
   - sudo pip3 install docker-compose
+  - sudo nano /lib/systemd/system/docker.service
+    - Replace the ExecStart line with:
+    - ExecStart=/usr/bin/dockerd -H tcp://0.0.0.0:4243 -H unix:///var/run/docker.sock
+    - So Portainer on main Pi can manage and monitor this remote docker instance.
+      - https://scriptcrunch.com/enable-docker-remote-api/
 - A small Flask webserver running on docker. See [BatteryServer.py](BatteryServer.py).
   - docker-compose up --build
     - See [docker-compose.yml](docker-compose.yml) for details
