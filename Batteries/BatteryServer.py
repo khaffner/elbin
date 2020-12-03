@@ -20,9 +20,9 @@ def get_voltage(battery):
     ina.shunt_adc_resolution = ADCResolution.ADCRES_12BIT_32S
     ina.bus_voltage_range = BusVoltageRange.RANGE_16V
 
-    shunt_voltage = ina.shunt_voltage
+    voltage = ina.bus_voltage
 
-    return shunt_voltage
+    return voltage
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
