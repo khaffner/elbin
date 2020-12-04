@@ -8,4 +8,6 @@ services:
         restart: unless-stopped
         privileged: true
         container_name: batteryserver
-        image: batteryserver
+        build:
+            context: .
+            dockerfile: Dockerfile
