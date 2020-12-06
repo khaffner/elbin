@@ -23,7 +23,7 @@ def get_voltage(battery):
 
     voltage = ina.bus_voltage
 
-    return voltage
+    return str(voltage)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
