@@ -15,7 +15,7 @@ def get_voltage(battery):
 
     i2c_bus = board.I2C()
 
-    ina = INA219(i2c_bus, addr=int(addr,16)
+    ina = INA219(i2c_bus, addr=int(addr,16))
 
     ina.bus_adc_resolution = ADCResolution.ADCRES_12BIT_32S
     ina.shunt_adc_resolution = ADCResolution.ADCRES_12BIT_32S
