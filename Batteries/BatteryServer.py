@@ -22,8 +22,9 @@ def get_voltage(battery):
     ina.bus_voltage_range = BusVoltageRange.RANGE_16V
 
     voltage = ina.bus_voltage
+    voltagerounded = round(voltage,2)
 
-    return str(voltage)
+    return str(voltagerounded)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
