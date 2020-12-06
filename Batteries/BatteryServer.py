@@ -11,6 +11,7 @@ def get_voltage(battery):
 
     # Convert 1 to 0x40, 2 to 0x41, etc
     addr = "0x" + str(39+int(battery)) 
+    print("Reading voltage on address {}".format(addr))
 
     i2c_bus = board.I2C()
 
