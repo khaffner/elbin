@@ -47,7 +47,7 @@ default_config:
       - platform: command_line
         name: Orientation
         command: cd /logs/orientation && tail -n 1 $(ls -Art | tail -n 1)
-        unit_of_measurement: "°C"
+        unit_of_measurement: "°"
         json_attributes:
           - rollDirection
           - pitchDirection
